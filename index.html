@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lotus Computers | Training & Placements</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Times New Roman", Times, serif;
+}
+html{scroll-behavior:smooth}
+body{background:#ffffff;color:#1a1a1a}
+
+/* ===== NAVBAR ===== */
+nav{
+position:fixed;
+top:0;width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:rgba(255,255,255,0.85);
+backdrop-filter:blur(10px);
+box-shadow:0 4px 20px rgba(0,0,0,0.08);
+z-index:999;
+}
+nav h1{
+font-size:30px;
+font-weight:700;
+color:#0f4c81;
+}
+nav ul{display:flex;gap:30px;list-style:none}
+nav ul li a{
+color:#0f4c81;
+text-decoration:none;
+font-weight:600;
+}
+
+/* ===== HERO (BACKGROUND IMAGE) ===== */
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+padding:0 8%;
+position:relative;
+overflow:hidden;
+z-index:1;
+background:url("bgimg.png") center/cover no-repeat;
+}
+
+/* Mobile crop fix */
+@media(max-width:768px){
+.hero{
+background-position:center top;
+}
+}
+
+/* Overlay */
+.hero::before{
+content:"";
+position:absolute;
+top:0;left:0;
+width:100%;height:100%;
+background:rgba(255,255,255,0.45);
+z-index:-1;
+}
+
+/* ===== HERO CONTENT ===== */
+.hero-content{
+max-width:720px;
+animation:fadeUp 1.3s ease;
+}
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(40px)}
+to{opacity:1;transform:translateY(0)}
+}
+.hero h2{
+font-size:56px;
+font-weight:700;
+color:#0b2e4a;
+}
+.hero h3{
+margin-top:12px;
+font-size:26px;
+font-weight:500;
+color:#444;
+}
+.hero p{
+margin:25px 0;
+font-size:18px;
+line-height:1.7;
+color:#333;
+}
+
+/* ===== BUTTONS ===== */
+.btn-outline{
+border:2px solid #0f4c81;
+padding:14px 32px;
+border-radius:30px;
+color:#0f4c81;
+text-decoration:none;
+font-weight:600;
+margin-right:15px;
+transition:.3s;
+}
+.btn-outline:hover{
+background:#0f4c81;
+color:#fff;
+}
+.btn-gradient{
+background:linear-gradient(135deg,#ffcc00,#ffb300);
+color:#000;
+padding:14px 34px;
+border-radius:30px;
+font-weight:700;
+text-decoration:none;
+}
+
+/* ===== SECTIONS ===== */
+section{padding:80px 8%}
+.section-title{text-align:center;margin-bottom:60px}
+.section-title h2{
+font-size:40px;
+color:#0f4c81;
+margin-bottom:10px;
+}
+.section-title p{
+font-size:18px;
+color:#444;
+max-width:900px;
+margin:auto;
+}
+
+/* ===== CARDS ===== */
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:35px;
+}
+.card{
+background:#ffffff;
+padding:40px;
+border-radius:20px;
+box-shadow:0 20px 45px rgba(0,0,0,0.1);
+transition:.4s;
+}
+.card:hover{transform:translateY(-10px)}
+.card h3{
+font-size:22px;
+margin-bottom:15px;
+color:#1e88e5;
+}
+.card p{
+font-size:16px;
+line-height:1.7;
+color:#333;
+}
+
+/* ===== CONTACT ===== */
+.contact{
+background:linear-gradient(135deg,#e3f2fd,#ffffff);
+}
+.contact-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+}
+.form input,.form textarea{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:8px;
+}
+.form button{
+background:#0f4c81;
+border:none;
+padding:14px 32px;
+border-radius:30px;
+font-weight:700;
+color:#fff;
+cursor:pointer;
+}
+
+/* ===== MAP ===== */
+iframe{width:100%;height:260px;border-radius:15px;border:none}
+
+/* ===== WHATSAPP ===== */
+.whatsapp{
+position:fixed;
+bottom:25px;right:25px;
+background:#25d366;
+padding:16px;
+border-radius:50%;
+text-decoration:none;
+z-index:999;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+/* ===== FOOTER ===== */
+footer{
+text-align:center;
+padding:30px;
+background:#0b2e4a;
+color:#fff;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+.hero h2{font-size:42px}
+.contact-grid{grid-template-columns:1fr}
+}
+
+/* ===== TRUST STATS ===== */
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:30px;
+text-align:center;
+}
+.stat{
+background:#f5f9ff;
+padding:40px;
+border-radius:18px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+.stat h3{
+font-size:42px;
+color:#0f4c81;
+}
+.stat p{
+font-size:18px;
+margin-top:10px;
+color:#333;
+}
+
+/* ===== CTA BAND ===== */
+.cta{
+background:linear-gradient(135deg,#0f4c81,#67b6fb);
+color:#ffffff;
+text-align:center;
+padding:90px 8%;
+}
+.cta h2{
+font-size:42px;
+margin-bottom:30px;
+}
+.cta a{
+display:inline-block;
+margin:10px;
+padding:14px 36px;
+border-radius:30px;
+font-weight:700;
+text-decoration:none;
+}
+.cta .enroll{
+background:#ffcc00;
+color:#000;
+}
+.cta .call{
+border:2px solid #ffffff;
+color:#ffffff;
+}
+
+</style>
+</head>
+
+<body>
+
+<a href="https://wa.me/919866317973" class="whatsapp" aria-label="WhatsApp">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="white">
+<path d="M12.04 2C6.53 2 2.04 6.49 2.04 12c0 1.96.57 3.78 1.55 5.31L2 22l4.86-1.57A9.95 9.95 0 0 0 12.04 22c5.51 0 10-4.49 10-10s-4.49-10-10-10Z"/>
+</svg>
+</a>
+
+<nav>
+<h1>LOTUS COMPUTERS</h1>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#courses">Courses</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<!-- HOME -->
+<div id="home" class="hero">
+<div class="hero-content">
+<h2>LOTUS COMPUTERS </h2>
+<h3>Get Trained. Get Placed.</h3>
+<p>
+Lotus Computers is a professionally managed training and placement institute established with the vision of empowering students and job seekers with industry-ready skills. Since 2017, we have been providing practical, real-time training programs designed to meet current IT industry demands and placement requirements.
+</p>
+<a href="#courses" class="btn-outline">Explore Courses</a>
+<a href="#contact" class="btn-gradient">Contact Us</a>
+</div>
+</div>
+
+<!-- TRUST STATS -->
+<section>
+<div class="stats">
+
+<div class="stat">
+<h3>7+</h3>
+<p>Years Experience</p>
+</div>
+
+<div class="stat">
+<h3>5,000+</h3>
+<p>Students Trained</p>
+</div>
+
+<div class="stat">
+<h3>1,000+</h3>
+<p>Placements</p>
+</div>
+
+<div class="stat">
+<h3>100+</h3>
+<p>Hiring Partners</p>
+</div>
+
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<div class="section-title">
+<h2>About Lotus Computers</h2>
+<p>
+We focus on delivering quality education combined with real-world exposure to ensure every learner becomes confident, skilled, and employable.
+</p>
+</div>
+
+<div class="cards">
+<div class="card">
+<h3>Who We Are</h3>
+<p>
+Lotus Computers is a career-focused training institute offering professional IT and software courses with a strong emphasis on hands-on learning, real-time projects, and practical knowledge. Our programs are designed to help students gain industry-level confidence.
+</p>
+</div>
+
+<div class="card">
+<h3>Our Mission</h3>
+<p>
+Our mission is to bridge the gap between academic learning and industry expectations by delivering job-oriented training supported by expert mentors, structured learning paths, and continuous performance evaluation.
+</p>
+</div>
+
+<div class="card">
+<h3>Leadership</h3>
+<p>
+Led by <strong>Ranjith Kumar G</strong>, Managing Director, Lotus Computers is driven by a strong commitment to quality education, ethical career guidance, student success, and long-term professional growth.
+</p>
+</div>
+</div>
+</section>
+
+<!-- COURSES -->
+<section id="courses">
+<div class="section-title">
+<h2>Training Programs</h2>
+<p>
+Our courses are carefully designed to provide deep conceptual understanding along with extensive practical exposure, ensuring that every learner becomes job-ready.
+</p>
+</div>
+
+<div class="cards">
+<div class="card">
+<h3>Software & IT Training</h3>
+<p>
+We offer comprehensive training in Python, Java, Web Development, and Data Analytics, covering both fundamentals and advanced concepts through real-time projects and hands-on labs.
+</p>
+</div>
+
+<div class="card">
+<h3>Professional Development</h3>
+<p>
+Our professional development programs include resume building, interview preparation, communication skills training, mock interviews, and aptitude sessions to help students face recruitment confidently.
+</p>
+</div>
+
+<div class="card">
+<h3>Placement Assistance</h3>
+<p>
+We provide structured placement support including MNC job training, interview scheduling, career guidance sessions, and continuous mentoring until successful placement is achieved.
+</p>
+</div>
+</div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta">
+<h2>Start Your Career With Lotus Computers Today</h2>
+<a href="#contact" class="enroll">Enroll Now</a>
+<a href="tel:9866317973" class="call">Call Now</a>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+<div class="section-title">
+<h2>Contact Us</h2>
+<p>
+Reach out to us for admissions, detailed course information, or career guidance. Our team is always ready to assist you.
+</p>
+</div>
+
+<div class="contact-grid">
+<div>
+<p><strong>Address:</strong><br>
+1st Floor, Green Square Plaza,<br>
+Near Public Garden, Hanamkonda
+</p>
+<p><strong>Phone:</strong> 9866317973</p>
+<p><strong>Email:</strong> mylotuscomputers@gmail.com</p>
+
+<iframe src="https://maps.google.com/maps?q=Hanamkonda&t=&z=13&output=embed"></iframe>
+</div>
+
+<div class="form">
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Your Email">
+<textarea rows="4" placeholder="Your Message"></textarea>
+<button>Submit Enquiry</button>
+</div>
+</div>
+</section>
+
+<footer>
+© Lotus Computers | Training & Placements
+</footer>
+
+</body>
+</html>
